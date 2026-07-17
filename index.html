@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guía del Huésped – Crea tu guía con QR para Airbnb</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Convierte tu anuncio de Airbnb, VRBO o Booking en una guía de bienvenida profesional con QR físico para tus huéspedes." />
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --secondary: #f59e0b;
+      --bg: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --danger: #ef4444;
+      --radius: 0.75rem;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      background: #f9fafb;
+      color: var(--text);
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #eff6ff, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.9rem;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+    .nav-links a {
+      color: var(--muted);
+    }
+    .btn {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      justify-content: center;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+    main {
+      padding-bottom: 4rem;
+    }
+    .hero {
+      padding: 3rem 0 2.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.6fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--secondary);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: clamp(2.1rem, 3.2vw, 2.7rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+      max-width: 30rem;
+    }
+    .hero-form {
+      background: white;
+      border-radius: 1.25rem;
+      padding: 1.4rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+    .hero-form-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .hero-input-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 0.9rem;
+    }
+    .input {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+    }
+    .hero-hint {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+    .hero-visual {
+      position: relative;
+      min-height: 260px;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-visual {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark">GH</div>
+        <div>Guía del Huésped</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#guia">Qué ve tu huésped</a>
+        <a href="#precios">Planes</a>
+        <button class="btn btn-outline" onclick="document.getElementById('url-anuncio').scrollIntoView({behavior:'smooth'});">
+          Crear mi guía
+        </button>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <section class="hero container">
+      <div>
+        <div class="hero-eyebrow">Para anfitriones de Airbnb, VRBO y Booking</div>
+        <h1 class="hero-title">Convierte tu anuncio en una guía de bienvenida con QR en 5 minutos.</h1>
+        <p class="hero-subtitle">
+          Pega el enlace de tu anuncio y genera una guía profesional con toda la información para tus huéspedes, más un QR físico para colocar en tu propiedad.
+        </p>
+  
+        <div class="hero-form">
+          <div class="hero-form-label">Pega aquí el enlace de tu anuncio</div>
+          <div class="hero-input-row" id="url-anuncio">
+            <input class="input" type="url" placeholder="https://www.airbnb.com/rooms/..." />
+            <button class="btn btn-primary">
+              Crear mi guía ahora
+              <span>➜</span>
+            </button>
+          </div>
+          <div class="hero-hint">
+            Funciona con Airbnb, VRBO y Booking. Sin necesidad de conocimientos técnicos.
+          </div>
+          <div class="hero-badges">
+            <div class="hero-badge">✓ QR físico incluido</div>
+            <div class="hero-badge">✓ Menos mensajes repetidos</div>
+            <div class="hero-badge">✓ Más reseñas 5 estrellas</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <p>Contenido de ejemplo de la guía visual</p>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Guía del Huésped. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+  
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
